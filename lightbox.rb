@@ -2,7 +2,7 @@
 #
 # Bart Vandeweerdt | www.appfoundry.be
 #
-# Example usage: {% lightbox images/appfoundry.png --data="some data" --title="some title" --alt="some alt" --img_style="css styling" %}
+# Example usage: {% lightbox images/appfoundry.png --data="some data" --title="some title" --alt="some alt" --img_style="css styling" --class="yourclass"%}
 module Jekyll
   class LightboxTag < Liquid::Tag
 
@@ -16,6 +16,7 @@ module Jekyll
       @title = ''
       @alt = ''
       @img_style = ''
+      @class = ''
       @data = ''
 
       # Parse Options
@@ -28,6 +29,9 @@ module Jekyll
       if text =~ /--img-style="([^"]*)"/i
         @img_style = text.match(/--img-style="([^"]*)"/i)[1]
       end
+      if text =~ /--class="([^"]*)"/i
+        @class = text.match(/--class="([^"]*)"/i)[1]
+      end
       if text =~ /--data="([^"]*)"/i
         @data = text.match(/--data="([^"]*)"/i)[1]
       end
@@ -38,7 +42,7 @@ module Jekyll
       url = context.registers[:page]["url"]
       relative = "../" * (url.split("/").length-1)
       src = File.join(relative, @path == nil ? '' : @path);
-      %{<a href="#{src}" data-lightbox="#{@data}" data-title="#{@title}"><img src="#{src}" alt="#{@alt || @title}" style="#{@img_style}"/></a>}
+      %{<a href="#{src}" data-lightbox="#{@data}" data-title="#{@title}"><img src="#{src}" alt="#{@alt || @title}" class="#{@class}" style="#{@img_style}"/></a>}
     end
   end
 end
