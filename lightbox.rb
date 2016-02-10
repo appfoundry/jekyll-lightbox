@@ -2,7 +2,7 @@
 #
 # Bart Vandeweerdt | www.appfoundry.be
 #
-# Example usage: {% lightbox images/appfoundry.png --data="some data" --title="some title" --alt="some alt" --img_style="css styling" --class="yourclass"%}
+# Example usage: {% lightbox images/appfoundry.png --data="some data" --title="some title" --alt="some alt" --img-style="css styling" --class="yourclass"%}
 module Jekyll
   class LightboxTag < Liquid::Tag
 
