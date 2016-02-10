@@ -12,7 +12,7 @@ A very simple Jekyll tag for including lightbox images in your jekyll powered we
 Use this plugin as a Jekyll tag in any of your pages as follows:
 
 ```
-{% lightbox images/appfoundry.png --data="appfoundry_image_set" --title="The AppFoundry Logo" --alt="This is our logo" --img_style="max-width:80%;" %}
+{% lightbox images/appfoundry.png --data="appfoundry_image_set" --title="The AppFoundry Logo" --alt="This is our logo" --img-style="max-width:80%;" %}
 ```
 
 This will ouput:
