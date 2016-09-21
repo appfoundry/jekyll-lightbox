@@ -12,12 +12,18 @@ module Jekyll
       # The path to our image
       @path = text.split(/\s+/)[0].strip
 
+      # The path to our thumb
+      @thumb = text.split(/\s+/)[0].strip
+
+
       # Defaults
       @title = ''
       @alt = ''
       @img_style = ''
       @class = ''
       @data = ''
+      @thumb =''
+
 
       # Parse Options
       if text =~ /--title="([^"]*)"/i
@@ -35,6 +41,10 @@ module Jekyll
       if text =~ /--data="([^"]*)"/i
         @data = text.match(/--data="([^"]*)"/i)[1]
       end
+      if text =~ /--thumb="([^"]*)"/i
+        @thumb = text.match(/--thumb="([^"]*)"/i)[1]
+      end
+
 
     end
 
@@ -42,7 +52,7 @@ module Jekyll
       url = context.registers[:page]["url"]
       relative = "../" * (url.split("/").length-1)
       src = File.join(relative, @path == nil ? '' : @path);
-      %{<a href="#{src}" data-lightbox="#{@data}" data-title="#{@title}"><img src="#{src}" alt="#{@alt || @title}" class="#{@class}" style="#{@img_style}"/></a>}
+      %{<a href="#{src}" data-lightbox="#{@data}" data-title="#{@title}"><img src="#{@thumb}" alt="#{@alt || @title}" class="#{@class}" style="#{@img_style}"/></a>}
     end
   end
 end
