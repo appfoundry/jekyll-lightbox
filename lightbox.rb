@@ -10,7 +10,9 @@ module Jekyll
       super
 
       # The path to our image
-      @path = text.split(/\s+/)[0].strip
+      @path = Liquid::Template.parse(
+        text.split(/\s(?=(?:[^"]|"[^"]*")*$)/)[0].strip
+      ).render(@context)
 
       # Defaults
       @title = ''
