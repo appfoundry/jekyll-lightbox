@@ -11,6 +11,7 @@ module Jekyll
 
       # The path to our image
       @path = Liquid::Template.parse(
+        # Regex: split on first whitespace character while allowing double quoting for surrounding spaces in a file path
         text.split(/\s(?=(?:[^"]|"[^"]*")*$)/)[0].strip
       ).render(@context)
 
