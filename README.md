@@ -32,12 +32,12 @@ The options explained:
 * **--img-style**: (optional) any inline `CSS` you would like to apply to your image
 * **--class**: (optional) any class you would like to apply to your image
 
-#Versioning
+## Versioning
 
 * Current version: **1.0**
 
-#Contact
+## Contact
 Feel free to email bart@appfoundry.be with questions or comments.
 
-#License
-This projected is licensed under the terms of the MIT license.
+## License
+This project is licensed under the terms of the MIT license.
